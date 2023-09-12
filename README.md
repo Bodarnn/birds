@@ -24,7 +24,7 @@ Creating a Bird object is easy using bracket notation.
   This data is available using the `example()` method.
 <details>
   <summary>Example</summary>
-    <p>Creates a Bird object with example data.</p>
+    Creates a Bird object with example data.
     ```javascript
     const bird = Bird.example();
     bird.print();
