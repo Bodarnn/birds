@@ -34,7 +34,7 @@ const bird = Bird.example();
 bird.print();
 ```
 **Output:**
-```javascript
+```
 | species | color | diet  | weight | lifespan | wingspan |
 |---------|-------|-------|--------|----------|----------|
 | sparrow | brown | seeds | 24     | 4        | 19       |
