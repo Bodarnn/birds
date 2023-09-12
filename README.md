@@ -27,7 +27,7 @@ This data is available using the `example()` method.
 
 <details>
 <summary>Example</summary>
-
+<br>
 Creates a Bird object with example data.
 
 ```javascript
