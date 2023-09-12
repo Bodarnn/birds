@@ -29,6 +29,7 @@ This data is available using the `example()` method.
 <summary>Example</summary>
 <br>
 Creates a Bird object with example data.
+<br>
 
 ```javascript
 const bird = Bird.example();
