@@ -29,7 +29,6 @@ This data is available using the `example()` method.
 <summary>Example</summary>
 <br>
 Creates a Bird object with example data.
-<br>
 
 ```javascript
 const bird = Bird.example();
@@ -44,6 +43,42 @@ bird.print();
 | pigeon  | gray  | seeds | 300    | 6        | 50       |
 | eagle   | brown | meat  | 4000   | 20       | 200      |
 | owl     | black | meat  | 1500   | 10       | 150      |
+```
+
+</details>
+
+<details>
+<summary>Add</summary>
+<br>
+
+```javascript
+const bird = Bird.example();
+bird["sum"] = bird.add(["lifespan", "wingspan"]);
+```
+**Output:**
+```
+| species | color | diet  | weight | lifespan | wingspan | sum |
+|---------|-------|-------|--------|----------|----------|-----|
+| sparrow | brown | seeds | 24     | 4        | 19       | 23  |
+| parrot  | green | fruit | 150    | 80       | 20       | 100 |
+| pigeon  | gray  | seeds | 300    | 6        | 50       | 56  |
+| eagle   | brown | meat  | 4000   | 20       | 200      | 220 |
+| owl     | black | meat  | 1500   | 10       | 150      | 160 |
+```
+
+```javascript
+const bird = Bird.example();
+bird["sum"] = bird["weight"].add(50);
+```
+**Output:**
+```
+| species | color | diet  | weight | lifespan | wingspan | sum  |
+|---------|-------|-------|--------|----------|----------|------|
+| sparrow | brown | seeds | 24     | 4        | 19       | 74   |
+| parrot  | green | fruit | 150    | 80       | 20       | 200  |
+| pigeon  | gray  | seeds | 300    | 6        | 50       | 350  |
+| eagle   | brown | meat  | 4000   | 20       | 200      | 4050 |
+| owl     | black | meat  | 1500   | 10       | 150      | 1550 |
 ```
 
 </details>
