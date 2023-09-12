@@ -1,13 +1,3 @@
-/*
- ____ _____ _____  _____   _____ 
-|  _ \_   _|  __ \|  __ \ / ____|
-| |_) || | | |__) | |  | | (___  
-|  _ < | | |  _  /| |  | |\___ \ 
-| |_) || |_| | \ \| |__| |____) |
-|____/_____|_|  \_\_____/|_____/ 
-
-*/
-
 /**
  * An array of data about birds!
  */
@@ -54,15 +44,15 @@ class BirdArray {
 	}
 
 	/**
-	 * Converts the BirdArray to an Array.
+	 * Converts a BirdArray to an Array.
 	 * @returns {Array} An Array.
 	 */
-	toArray() {
+	array() {
 		return this.data;
 	} // TODO: this.data.slice()?
 
 	/**
-     * Maps each element using a callback function.
+     * Calls a function for each element.
      * @param {function} callback - A callback function.
      * @returns {BirdArray} A BirdArray.
      */
@@ -71,9 +61,8 @@ class BirdArray {
 		const n = data.length;
 		let result = new Array(n);
 		for (let i = 0; i < n; i++) {
-			let val = data[i];
-			val = callback(val);
-			result[i] = val;
+			const val = data[i];
+			result[i] = callback(val);
 		}
 		return new BirdArray(result);
 	}
@@ -112,7 +101,7 @@ class BirdArray {
 
 	/**
 	 * Multiplies each element by a value.
-	 * @param {number} [x=0] - A value.
+	 * @param {number} [x=1] - A value.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	mult(x = 1) {
@@ -128,7 +117,7 @@ class BirdArray {
 
 	/**
 	 * Divides each element by a value.
-	 * @param {number} [x=0] - A value.
+	 * @param {number} [x=1] - A value.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	div(x = 1) {
@@ -141,6 +130,56 @@ class BirdArray {
 		}
 		return new BirdArray(result);
 	}
+
+	/**
+	 * Raises each element to a value.
+	 * @param {number} [x=1] - A value.
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	power(x = 1) {
+		const data = this.data;
+		const n = data.length;
+		let result = new Array(n);
+		for (let i = 0; i < n; i++) {
+			const val = data[i];
+			result[i] = val ** x;
+		}
+		return new BirdArray(result);
+	}
+
+	/**
+	 * Takes a root of each element.
+	 * @param {number} [x=1] - A value.
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	root(x = 1) {
+		const data = this.data;
+		const n = data.length;
+		let result = new Array(n);
+		for (let i = 0; i < n; i++) {
+			const val = data[i];
+			result[i] = val ** (1 / x);
+		}
+		return new BirdArray(result);
+	}
+
+	/**
+	 * Takes the log of each element.
+	 * @param {number} [x=Math.E] - A value.
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	log(x = Math.E) {
+        const data = this.data;
+        const n = data.length;
+        let result = new Array(n);
+        for (let i = 0; i < n; i++) {
+            const val = data[i];
+			const num = Math.log(val);
+			const den = Math.log(x);
+            result[i] = num / den;
+        }
+        return new BirdArray(result);
+    }
 
 	/**
 	 * Finds the minimum value.
@@ -177,7 +216,90 @@ class BirdArray {
 	}
 
 	/**
-	 * Counts the number of non-null elements.
+	 * Finds the range.
+	 * @returns {number} A number.
+	 */
+	range() {
+		const min = this.min();
+		const max = this.max();
+		return max - min;
+	}
+
+	/**
+	 * Finds the median.
+	 * @returns {number} A number.
+	 */
+	median() {
+		const data = this.data;
+		const n = data.length;
+		const result = data.slice();
+		result.sort((a, b) => {
+			if (a > b) return 1;
+			if (a < b) return -1;
+			return 0;
+		});
+		const i = Math.floor(n / 2);
+		if (n % 2 === 0) {
+			return (result[i - 1] + result[i]) / 2;
+		} else {
+			return result[i];
+		}
+	}
+
+	/**
+	 * Finds the first-quartile.
+	 * @returns {number} A number.
+	 */
+	q1() {
+		const data = this.data;
+		const n = data.length;
+		const result = data.slice();
+		result.sort((a, b) => {
+			if (a > b) return 1;
+			if (a < b) return -1;
+			return 0;
+		});
+		const i = Math.floor(n / 4);
+		if (n % 4 === 0) {
+			return (result[i - 1] + result[i]) / 2;
+		} else {
+			return result[i];
+		}
+	}
+
+	/**
+	 * Finds the third-quartile.
+	 * @returns {number} A number.
+	 */
+	q3() {
+		const data = this.data;
+		const n = data.length;
+		const result = data.slice();
+		result.sort((a, b) => {
+			if (a > b) return 1;
+			if (a < b) return -1;
+			return 0;
+		});
+		const i = Math.floor(3 * n / 4);
+		if (n % 4 === 0) {
+			return (result[i - 1] + result[i]) / 2;
+		} else {
+			return result[i];
+		}
+	}
+
+	/**
+	 * Finds the inter-quartile range.
+	 * @returns {number} A number.
+	 */
+	iqr() {
+		const q1 = this.q1();
+		const q3 = this.q3();
+		return q3 - q1;
+	}
+
+	/**
+	 * Counts the number elements.
 	 * @returns {number} A number.
 	 */
 	count() {
@@ -194,11 +316,11 @@ class BirdArray {
 	}
 
 	/**
-	 * Counts the number of non-null elements that meet some condition(s).
-	 * @param {function} [callback=val => true] - A callback function that takes an element and returns a boolean.
+	 * Counts the number of elements that meet some condition(s).
+	 * @param {function} [callback=(val) => val !== null] - A function that takes an element and returns a boolean.
 	 * @returns {number} A number.
 	 */
-	countif(callback = val => true) {
+	countif(callback = (val) => val !== null) {
 		const data = this.data;
 		const n = data.length;
 		let result = 0;
@@ -228,10 +350,10 @@ class BirdArray {
 
 	/**
 	 * Calculates the sum of elements that meet some condition(s).
-	 * @param {function} [callback=val => true] - A callback function that takes an element and returns a boolean.
+	 * @param {function} [callback=(val) => true] - A function that takes an element and returns a boolean.
 	 * @returns {number} A number.
 	 */
-	sumif(callback = val => true) {
+	sumif(callback = (val) => true) {
 		const data = this.data;
 		const n = data.length;
 		let result = 0;
@@ -272,29 +394,38 @@ class BirdArray {
 
 	/**
 	 * Calculates the variance.
-	 * @param {boolean} [sample=false] - Whether to calculate the sample variance.
+	 * @param {boolean} [sample=true] - Whether to calculate the sample variance.
 	 * @returns {number} A number.
 	 */
-	var(sample = false) {
+	var(sample = true) {
+		const tss = this.tss();
+		const count = this.count();
 		if (sample) {
-			const tss = this.tss();
-			const count = this.count();
 			return tss / (count - 1);
 		} else {
-			const tss = this.tss();
-			const count = this.count();
 			return tss / count;
 		}
 	}
 
 	/**
 	 * Calculates the standard deviation.
-	 * @param {boolean} [sample=false] - Whether to calculate the sample standard deviation.
+	 * @param {boolean} [sample=true] - Whether to calculate the sample standard deviation.
 	 * @returns {number} A number.
 	 */
-	stdev(sample = false) {
+	stdev(sample = true) {
 		const _var = this.var(sample);
 		return _var ** 0.5;
+	}
+
+	/**
+	 * Calculates the standard error.
+	 * @param {boolean} [estimate=true] - Whether to estimate the standard error.
+	 * @returns A number.
+	 */
+	sem(estimate = true) {
+		const stdev = this.stdev(estimate);
+		const count = this.count();
+		return stdev / count ** 0.5
 	}
 
 	/**
@@ -317,34 +448,34 @@ class BirdArray {
 
 	/**
 	 * Sorts the BirdArray.
-	 * @param {number} [ascending=1] - How to sort. Positive for ascending. Negative for descending.
+	 * @param {number} [order=1] - How to sort. 1 for ascending. -1 for descending.
 	 * @returns {BirdArray} A BirdArray.
 	 */
-	sort(ascending = 1) {
+	sort(order = 1) {
 		const data = this.data;
 		const result = data.slice();
 		result.sort((a, b) => {
-			if (a > b) return ascending;
-			if (a < b) return -ascending;
-			return ascending;
+			if (a > b) return order;
+			if (a < b) return -order;
+			return 0;
 		});
 		return new BirdArray(result);
 	}
 
 	/**
 	 * Filters the BirdArray.
-	 * @param {*} callback - A callback function that takes an element and returns a boolean.
+	 * @param {function} [callback=(val) => true] - A function that takes an element and returns a boolean.
 	 * @returns {BirdArray} A BirdArray.
 	 */
-	filter(callback = val => true) {
+	filter(callback = (val) => true) {
 		const data = this.data;
 		const result = data.filter(callback);
 		return new BirdArray(result);
 	}
 
 	/**
-	 * Replaces elements that meet some pattern.
-	 * @param {string|RegExp} pattern - A pattern to find.
+	 * Replaces patterns in elements.
+	 * @param {string|RegExp} pattern - A pattern.
 	 * @param {string} replacement - A replacement.
 	 * @returns {BirdArray} A BirdArray.
 	 */
@@ -354,8 +485,7 @@ class BirdArray {
 		let result = new Array(n);
 		for (let i = 0; i < n; i++) {
 			const val = data[i];
-			const temp = val.replace(pattern, replacement);
-			result[i] = temp;
+			result[i] = val.replace(pattern, replacement);
 		}
 		return new BirdArray(result);
 	}
@@ -368,7 +498,7 @@ class BirdArray {
 class Bird {
 	/**
 	 * Creates a new Bird.
-	 * @param {Array} [data=[]] - An array of objects.
+	 * @param {Object[]} [data=[]] - An array of objects.
 	 */
 	constructor(data = []) {
 		this.data = data;
@@ -426,6 +556,70 @@ class Bird {
 	}
 
 	/**
+	 * Creates a Bird of birds!
+	 * @returns {Bird} A Bird.
+	 */
+	static example() {
+		return new Bird([
+			{
+				"species": "sparrow",
+				"color": "brown",
+				"habitat": "city",
+				"size": "small",
+				"diet": "seeds",
+				"sound": "chirp",
+				"weight": 24,
+				"lifespan": 4,
+				"wingspan": 19
+			},
+			{
+				"species": "parrot",
+				"color": "green",
+				"habitat": "jungle",
+				"size": "medium",
+				"diet": "fruits",
+				"sound": "squawk",
+				"weight": 150,
+				"lifespan": 80,
+				"wingspan": 20
+			},
+			{
+				"species": "pigeon",
+				"color": "gray",
+				"habitat": "city",
+				"size": "medium",
+				"diet": "seeds",
+				"sound": "coo",
+				"weight": 300,
+				"lifespan": 6,
+				"wingspan": 50
+			},
+			{
+				"species": "eagle",
+				"color": "brown",
+				"habitat": "mountains",
+				"size": "large",
+				"diet": "meat",
+				"sound": "screech",
+				"weight": 4000,
+				"lifespan": 20,
+				"wingspan": 200
+			},
+			{
+				"species": "owl",
+				"color": "black",
+				"habitat": "forests",
+				"size": "large",
+				"diet": "meat",
+				"sound": "hoot",
+				"weight": 1500,
+				"lifespan": 10,
+				"wingspan": 150
+			}
+		]);
+	}
+
+	/**
 	 * Gets the unique columns.
 	 * @returns {Array} An array.
 	 */
@@ -452,7 +646,7 @@ class Bird {
 
 	/**
 	 * Yields the values of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @yields {*} A generator.
 	 */
 	*vals(cols = this.cols) {
@@ -471,7 +665,7 @@ class Bird {
 
 	/**
 	 * Calculates the element-wise sums of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	add(cols = this.cols) {
@@ -498,7 +692,7 @@ class Bird {
 
 	/**
 	 * Calculates the element-wise differences of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	sub(cols = this.cols) {
@@ -525,7 +719,7 @@ class Bird {
 
 	/**
 	 * Calculates the element-wise products of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	mult(cols = this.cols) {
@@ -552,7 +746,7 @@ class Bird {
 
 	/**
 	 * Calculates the element-wise quotients of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	div(cols = this.cols) {
@@ -578,8 +772,91 @@ class Bird {
 	}
 
 	/**
+	 * Calculates the element-wise powers of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	power(cols = this.cols) {
+		const data = this.data;
+		const n = data.length;
+		const m = cols.length;
+		let result = new Array(n);
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			const col = cols[0];
+			const val = row[col];
+			result[i] = val;
+		}
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			for (let j = 1; j < m; j++) {
+				const col = cols[j];
+				const val = row[col];
+				result[i] = result[i] ** val;
+			}
+		}
+		return new BirdArray(result);
+	}
+
+	/**
+	 * Calculates the element-wise roots of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	root(cols = this.cols) {
+		const data = this.data;
+		const n = data.length;
+		const m = cols.length;
+		let result = new Array(n);
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			const col = cols[0];
+			const val = row[col];
+			result[i] = val;
+		}
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			for (let j = 1; j < m; j++) {
+				const col = cols[j];
+				const val = row[col];
+				result[i] = result[i] ** (1 / val);
+			}
+		}
+		return new BirdArray(result);
+	}
+
+	/**
+	 * Calculates the element-wise log of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	log(cols = this.cols) {
+		const data = this.data;
+		const n = data.length;
+		const m = cols.length;
+		let result = new Array(n);
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			const col = cols[0];
+			const val = row[col];
+			result[i] = val;
+		}
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			for (let j = 1; j < m; j++) {
+				const col = cols[j];
+				const val = row[col];
+				const num = Math.log(result[i]);
+				const den = Math.log(val);
+				result[i] = num / den;
+			}
+		}
+		return new BirdArray(result);
+	}
+
+	/**
 	 * Finds the minimum value of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {number} A number.
 	 */
 	min(cols = this.cols) {
@@ -602,7 +879,7 @@ class Bird {
 
 	/**
 	 * Finds the maximum value of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {number} A number.
 	 */
 	max(cols = this.cols) {
@@ -624,8 +901,123 @@ class Bird {
 	}
 
 	/**
-	 * Counts the number of non-null elements in columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * Finds the range of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {number} A number.
+	 */
+	range(cols = this.cols) {
+		const min = this.min(cols);
+		const max = this.max(cols);
+		return max - min;
+	}
+
+	/**
+	 * Finds the median of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {number} A number.
+	 */
+	median(cols = this.cols) {
+		const data = this.data;
+		const n = data.length;
+		const m = cols.length;
+		let result = [];
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			for (let j = 0; j < m; j++) {
+				const col = cols[j];
+				const val = row[col];
+				result.push(val);
+			}
+		}
+		result.sort((a, b) => {
+			if (a > b) return 1;
+			if (a < b) return -1;
+			return 0;
+		});
+		const i = Math.floor(n / 2);
+		if (n % 2 === 0) {
+			return (result[i - 1] + result[i]) / 2;
+		} else {
+			return result[i];
+		}
+	}
+
+	/**
+	 * Finds the first-quartile of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {number} A number.
+	 */
+	q1(cols = this.cols) {
+		const data = this.data;
+		const n = data.length;
+		const m = cols.length;
+		let result = [];
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			for (let j = 0; j < m; j++) {
+				const col = cols[j];
+				const val = row[col];
+				result.push(val);
+			}
+		}
+		result.sort((a, b) => {
+			if (a > b) return 1;
+			if (a < b) return -1;
+			return 0;
+		});
+		const i = Math.floor(n / 4);
+		if (n % 4 === 0) {
+			return (result[i - 1] + result[i]) / 2;
+		} else {
+			return result[i];
+		}
+	}
+
+	/**
+	 * Finds the third-quartile of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {number} A number.
+	 */
+	q3(cols = this.cols) {
+		const data = this.data;
+		const n = data.length;
+		const m = cols.length;
+		let result = [];
+		for (let i = 0; i < n; i++) {
+			const row = data[i];
+			for (let j = 0; j < m; j++) {
+				const col = cols[j];
+				const val = row[col];
+				result.push(val);
+			}
+		}
+		result.sort((a, b) => {
+			if (a > b) return 1;
+			if (a < b) return -1;
+			return 0;
+		});
+		const i = Math.floor(3 * n / 4);
+		if (n % 4 === 0) {
+			return (result[i - 1] + result[i]) / 2;
+		} else {
+			return result[i];
+		}
+	}
+
+	/**
+	 * Finds the inter-quartile range of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @returns {number} A number.
+	 */
+	iqr(cols = this.cols) {
+		const q1 = this.q1(cols);
+		const q3 = this.q3(cols);
+		return q3 - q1;
+	}
+
+	/**
+	 * Counts the number of elements in columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {number} A number.
 	 */
 	count(cols = this.cols) {
@@ -647,12 +1039,12 @@ class Bird {
 	}
 
 	/**
-	 * Counts the number of non-null elements in columns that meet some condition(s).
-	 * @param {Array} [cols=this.cols] - An array of columns.
-	 * @param {function} [callback=val => true] - A callback function that takes an element and returns a boolean.
+	 * Counts the number of elements in columns that meet some condition(s).
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @param {function} [callback=(val) => val !== null] - A function that takes an element and returns a boolean.
 	 * @returns {number} A number.
 	 */
-	countif(cols = this.cols, callback = val => val !== null) {
+	countif(cols = this.cols, callback = (val) => val !== null) {
 		const data = this.data;
 		const n = data.length;
 		const m = cols.length;
@@ -672,7 +1064,7 @@ class Bird {
 
 	/**
 	 * Calculates the sum of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {number} A number.
 	 */
 	sum(cols = this.cols) {
@@ -693,11 +1085,12 @@ class Bird {
 
 	/**
 	 * Calculates the sum of columns that meet some condition(s).
-	 * @param {Array} [cols=this.cols] - An array of columns.
-	 * @param {function} [callback=val => true] - A callback function that takes an element and returns a boolean.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @param {function} [callback=(val) => true] - A function that takes an element and returns a boolean.
+	 * @param {string[]|symbol[]} [sumCols=undefined] - An array of columns.
 	 * @returns {number} A number.
 	 */
-	sumif(cols = this.cols, callback = val => true, sumCols = undefined) {
+	sumif(cols = this.cols, callback = (val) => true, sumCols = undefined) {
 		if (sumCols === undefined) {
 			sumCols = cols;
 		}
@@ -722,7 +1115,7 @@ class Bird {
 
 	/**
 	 * Calculates the average of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {number} A number.
 	 */
 	avg(cols = this.cols) {
@@ -733,7 +1126,7 @@ class Bird {
 
 	/**
 	 * Calculates the total sum of squares of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {number} A number.
 	 */
 	tss(cols = this.cols) {
@@ -747,7 +1140,7 @@ class Bird {
 			for (let j = 0; j < m; j++) {
 				const col = cols[j];
 				const val = row[col];
-				result += (val - average) ** 2;
+				result += (val - avg) ** 2;
 			}
 		}
 		return result;
@@ -755,36 +1148,46 @@ class Bird {
 
 	/**
 	 * Calculates the variance of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
-	 * @param {boolean} [sample=false] - Whether to calculate the sample variance.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @param {boolean} [sample=true] - Whether to calculate the sample variance.
 	 * @returns {number} A number.
 	 */
-	var(cols = this.cols, sample = false) {
-		if (sample) {
+	var(cols = this.cols, sample = true) {
 			const tss = this.tss(cols);
 			const count = this.count(cols);
+		if (sample) {
 			return tss / (count - 1);
 		} else {
-			const tss = this.tss(cols);
-			const count = this.count(cols);
-			return tss / (count);
+			return tss / count;
 		}
 	}
 
 	/**
 	 * Calculates the standard deviation of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
-	 * @param {boolean} [sample=false] - Whether to calculate the sample standard deviation.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @param {boolean} [sample=true] - Whether to calculate the sample standard deviation.
 	 * @returns {number} A number.
 	 */
-	stdev(cols = this.cols, sample = false) {
+	stdev(cols = this.cols, sample = true) {
 		const _var = this.var(cols, sample);
 		return _var ** 0.5;
 	}
 
 	/**
+	 * Calculates the standard error of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @param {boolean} [estimate=true] - Whether to estimate the standard error.
+	 * @returns A number.
+	 */
+	sem(cols = this.cols, estimate = true) {
+		const stdev = this.stdev(cols, estimate);
+		const count = this.count(cols);
+		return stdev / count ** 0.5
+	}
+
+	/**
 	 * Finds the unique elements of columns.
-	 * @param {Array} [cols=this.cols] - An array of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	unique(cols = this.cols) {
@@ -809,7 +1212,7 @@ class Bird {
 	/**
 	 * Sorts the BirdArray by a column.
 	 * @param {string} [col=this.cols[0]] - A column.
-	 * @param {number} [ascending=1] - How to sort. Positive for ascending. Negative for descending.
+	 * @param {number} [order=1] - How to sort. 1 for ascending. -1 for descending.
 	 * @returns {Bird} A Bird.
 	 */
 	sortby(col = this.cols[0], ascending = 1) {
@@ -818,34 +1221,28 @@ class Bird {
 		result.sort((a, b) => {
 			const x = a[col];
 			const y = b[col];
-			// if (x === null && typeof y === "number") return ascending;
-			// if (x === null && typeof y === "string") return ascending;
-			// if (typeof x === "string" && typeof y === "number") return ascending;
-			// if (typeof x === "string" && y === null) return -ascending;
-			// if (typeof x === "number" && typeof y === "string") return -ascending;
-			// if (typeof x === "number" && y === null) return -ascending;
-			if (x > y) return ascending;
-			if (x < y) return -ascending;
-			return ascending;
+			if (x > y) return order;
+			if (x < y) return -order;
+			return order;
 		});
 		return new Bird(result);
 	}
 
 	/**
 	 * Filters the BirdArray.
-	 * @param {function} [callback=row => true] - A callback function that takes an object and returns a boolean.
+	 * @param {function} [callback=(row) => true] - A function that takes an object and returns a boolean.
 	 * @returns {Bird} A Bird.
 	 */
-	filterby(callback = row => true) {
+	filterby(callback = (row) => true) {
 		const data = this.data;
 		const result = data.filter(callback);
 		return new Bird(result);
 	}
 
 	/**
-	 * Replaces elements of some column(s) that meet some pattern.
-	 * @param {Array} [cols=this.cols] - An array of columns.
-	 * @param {string|RegExp} pattern - A pattern to find.
+	 * Replaces pattern in elements of columns.
+	 * @param {string[]|symbol[]} [cols=this.cols] - An array of columns.
+	 * @param {string|RegExp} pattern - A pattern.
 	 * @param {string} replacement - A replacement.
 	 * @returns {Bird} A Bird.
 	 */
@@ -869,7 +1266,7 @@ class Bird {
 			result[i] = temp;
 		}
 		return new Bird(result);
-	}
+	} // TODO: I just don't like this.
 
 	/**
 	 * Slices the first n rows.
@@ -898,7 +1295,7 @@ class Bird {
 	}
 
 	/**
-	 * Prints the Bird to the console.
+	 * Prints the Bird.
 	 */
 	print() {
 		const data = this.data;
