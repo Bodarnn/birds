@@ -27,18 +27,21 @@ This data is available using the `example()` method.
 <details>
   <summary>Example</summary>
     Creates a Bird object with example data.
-    ```javascript
-    const bird = Bird.example();
-    bird.print();
-    ```
-    **Output:**
-    ```
-    | species | color | diet  | weight | lifespan | wingspan |
-    |---------|-------|-------|--------|----------|----------|
-    | sparrow | brown | seeds | 24     | 4        | 19       |
-    | parrot  | green | fruit | 150    | 80       | 20       |
-    | pigeon  | gray  | seeds | 300    | 6        | 50       |
-    | eagle   | brown | meat  | 4000   | 20       | 200      |
-    | owl     | black | meat  | 1500   | 10       | 150      |
-    ```
+
+  ```javascript
+  const bird = Bird.example();
+  bird.print();
+  ```
+
+  **Output:**
+
+  ```
+  | species | color | diet  | weight | lifespan | wingspan |
+  |---------|-------|-------|--------|----------|----------|
+  | sparrow | brown | seeds | 24     | 4        | 19       |
+  | parrot  | green | fruit | 150    | 80       | 20       |
+  | pigeon  | gray  | seeds | 300    | 6        | 50       |
+  | eagle   | brown | meat  | 4000   | 20       | 200      |
+  | owl     | black | meat  | 1500   | 10       | 150      |
+  ```
 </details>
