@@ -12,9 +12,7 @@ bird["weight"] = [24, 150, 300, 4000, 1500];
 bird["lifespan"] = [4, 80, 6, 20, 10];
 bird["wingspan"] = [19, 20, 50, 200, 150];
 bird.print();
-```
-**Output:**
-```
+Output:
 | species | color | diet  | weight | lifespan | wingspan |
 |---------|-------|-------|--------|----------|----------|
 | sparrow | brown | seeds | 24     | 4        | 19       |
