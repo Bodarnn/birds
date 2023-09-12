@@ -1,12 +1,6 @@
 # birds
-
 Birds is a JavaScript library that provides high-performance, intuitive, and easy-to-use data structures for manipulating and processing structured data. Birds is heavily inspired by Python Pandas and provides a similar syntax. This means that users familiar with Pandas and know JavaScript can easily pick it up.
-
-<details>
-  <summary>Example</summary>summary
-
-  Creating a Bird object is easy using bracket notation.
-  
+Creating a Bird object is easy using bracket notation.
   ```javascript
   const bird = new Bird();
   bird["species"] = ['sparrow', 'parrot', 'pigeon', 'eagle', 'owl'];
@@ -27,9 +21,10 @@ Birds is a JavaScript library that provides high-performance, intuitive, and eas
   | eagle   | brown | meat  | 4000   | 20       | 200      |
   | owl     | black | meat  | 1500   | 10       | 150      |
   ```
-  
   This data is available using the `example()` method.
-  
+<details>
+  <summary>Example</summary>
+  Creates a Bird object with example data.
   ```javascript
   const bird = Bird.example();
   bird.print();
