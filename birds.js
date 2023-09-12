@@ -564,10 +564,7 @@ class Bird {
 			{
 				"species": "sparrow",
 				"color": "brown",
-				"habitat": "city",
-				"size": "small",
 				"diet": "seeds",
-				"sound": "chirp",
 				"weight": 24,
 				"lifespan": 4,
 				"wingspan": 19
@@ -575,10 +572,7 @@ class Bird {
 			{
 				"species": "parrot",
 				"color": "green",
-				"habitat": "jungle",
-				"size": "medium",
-				"diet": "fruits",
-				"sound": "squawk",
+				"diet": "fruit",
 				"weight": 150,
 				"lifespan": 80,
 				"wingspan": 20
@@ -586,10 +580,7 @@ class Bird {
 			{
 				"species": "pigeon",
 				"color": "gray",
-				"habitat": "city",
-				"size": "medium",
 				"diet": "seeds",
-				"sound": "coo",
 				"weight": 300,
 				"lifespan": 6,
 				"wingspan": 50
@@ -597,10 +588,7 @@ class Bird {
 			{
 				"species": "eagle",
 				"color": "brown",
-				"habitat": "mountains",
-				"size": "large",
 				"diet": "meat",
-				"sound": "screech",
 				"weight": 4000,
 				"lifespan": 20,
 				"wingspan": 200
@@ -608,10 +596,7 @@ class Bird {
 			{
 				"species": "owl",
 				"color": "black",
-				"habitat": "forests",
-				"size": "large",
 				"diet": "meat",
-				"sound": "hoot",
 				"weight": 1500,
 				"lifespan": 10,
 				"wingspan": 150
