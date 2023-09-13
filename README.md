@@ -7,18 +7,10 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 <details>
 <summary>Example</summary>
 
-### Description
-
-  Creates an example Bird object.
-
-### Parameters
-
-None!
-
-### Example
+### Bird.example()
 
 ```js
-const bird = Birds.example();
+const bird = Bird.example();
 bird.print();
 ```
 
@@ -32,6 +24,51 @@ Output:
 | pigeon  | gray  | seeds | 300    | 6        | 50       |
 | eagle   | brown | meat  | 4000   | 20       | 200      |
 | owl     | black | meat  | 1500   | 10       | 150      |
+```
+
+</details>
+
+<details>
+<summary>Set</summary>
+
+### Bird.set()
+
+```js
+const bird = new Bird();
+bird["species"] = ["sparrow", "parrot", "pigeon", "eagle", "owl"];
+bird["wingspan"] = [19, 20, 50, 200, 150];
+bird.print();
+```
+
+Output:
+
+```
+| species | wingspan |
+|---------|----------|
+| sparrow | 19       |
+| parrot  | 20       |
+| pigeon  | 50       |
+| eagle   | 200      |
+| owl     | 150      |
+```
+
+</details>
+
+<details>
+<summary>Get</summary>
+
+### Bird.get()
+
+```js
+const bird = Bird.example();
+const species = bird["species"].array();
+console.log(species);
+```
+
+Output:
+
+```
+['sparrow', 'parrot', 'pigeon', 'eagle', 'owl']
 ```
 
 </details>
