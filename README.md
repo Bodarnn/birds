@@ -137,7 +137,7 @@ Output:
 [1, 2, 3]
 ```
 
-## Bird.example()
+## Bird.sub()
 
 ```js
 let data = [
