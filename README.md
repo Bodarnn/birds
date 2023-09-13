@@ -8,7 +8,8 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 ## BirdArray.example()
 
 ```js
-BirdArray.example().array();
+const ba = BirdArray.example();
+ba.print()
 ```
 
 Output:
@@ -20,7 +21,8 @@ Output:
 ## Bird.example()
 
 ```js
-Bird.example().print();
+const bd = Bird.example();
+bd.print();
 ```
 
 Output:
@@ -47,7 +49,7 @@ ba[0] = "seeds";
 ba[1] = "fruit";
 ba[2] = "seeds";
 ba[3] = "meat";
-ba.array();
+ba.print();
 ```
 
 Output:
@@ -60,7 +62,7 @@ Output:
 
 ```js
 const bd = new Bird();
-bd["diet"] = ["seeds", "fruit", "seeds", "meat"];
+bd["habitat"] = BirdArray.example();
 bd["weight"] = [24, 150, 300, 4000];
 bd.print();
 ```
@@ -68,12 +70,12 @@ bd.print();
 Output:
 
 ```
-| diet    | weight |
-|---------|--------|
-| 'seeds' | 24     |
-| 'fruit' | 150    |
-| 'seeds' | 300    |
-| 'meat'  | 4000   |
+| habitat    | weight |
+|------------|--------|
+| 'forest'   | 24     |
+| 'jungle'   | 150    |
+| 'city'     | 300    |
+| 'wetlands' | 4000   |
 ```
 
 </details>
@@ -85,26 +87,27 @@ Output:
 
 ```js
 const ba = BirdArray.example();
-ba[0];
+ba[2];
 ```
 
 Output:
 
 ```
-'forest'
+'city'
 ```
 
 ## Bird.get()
 
 ```js
 const bd = Bird.example();
-bd["species"].array();
+const ba = bd["color"];
+ba.print();
 ```
 
 Output:
 
 ```
-['sparrow', 'parrot', 'pigeon', 'eagle']
+['brown', 'green', 'gray', 'brown']
 ```
 
 </details>
@@ -112,99 +115,37 @@ Output:
 <details>
 <summary>Add</summary>
 
+## BirdArray.add()
+
+```js
+let ba = BirdArray.example();
+ba = ba.add(" biome")
+ba.print();
+```
+
+Output:
+
+```
+['forest biome', 'jungle biome', 'city biome', 'wetlands biome']
+```
+
 ## Bird.add()
 
 ```js
-const bird = Bird.example();
-bird["foo"] = bird.add(["wingspan", "lifespan"]);
-bird["bar"] = bird["foo"].add(1);
-bird.print();
+const bd = Bird.example();
+bd["span"] = bd.add(["wingspan", "lifespan"]);
+bd.print();
 ```
 
 Output:
 
 ```
-| species | color | wingspan | lifespan | foo | bar |
-|---------|-------|----------|----------|-----|-----|
-| sparrow | brown | 19       | 4        | 23  | 24  |
-| parrot  | green | 20       | 80       | 100 | 101 |
-| pigeon  | gray  | 50       | 6        | 56  | 57  |
-| eagle   | brown | 200      | 20       | 220 | 221 |
-```
-
-</details>
-
-<details>
-<summary>Subtract</summary>
-
-## Bird.sub()
-
-```js
-const bird = Bird.example();
-bird["foo"] = bird.sub(["wingspan", "lifespan"]);
-bird["bar"] = bird["foo"].sub(1);
-bird.print();
-```
-
-Output:
-
-```
-| species | color | wingspan | lifespan | foo | bar |
-|---------|-------|----------|----------|-----|-----|
-| sparrow | brown | 19       | 4        | 15  | 44  |
-| parrot  | green | 20       | 80       | -60 | -61 |
-| pigeon  | gray  | 50       | 6        | 44  | 43  |
-| eagle   | brown | 200      | 20       | 180 | 179 |
-```
-
-</details>
-
-<details>
-<summary>Multiply</summary>
-
-## Bird.mult()
-
-```js
-const bird = Bird.example();
-bird["foo"] = bird.mult(["wingspan", "lifespan"]);
-bird["bar"] = bird["foo"].mult(2);
-bird.print();
-```
-
-Output:
-
-```
-| species | color | wingspan | lifespan | foo  | bar  |
-|---------|-------|----------|----------|------|------|
-| sparrow | brown | 19       | 4        | 76   | 152  |
-| parrot  | green | 20       | 80       | 1600 | 3200 |
-| pigeon  | gray  | 50       | 6        | 300  | 600  |
-| eagle   | brown | 200      | 20       | 4000 | 8000 |
-```
-
-</details>
-
-<details>
-<summary>Divide</summary>
-
-## Bird.div()
-
-```js
-const bird = Bird.example();
-bird["foo"] = bird.div(["wingspan", "lifespan"]);
-bird["bar"] = bird["foo"].div(2);
-bird.print();
-```
-
-Output:
-
-```
-| species | color | wingspan | lifespan | foo     | bar     |
-|---------|-------|----------|----------|---------|---------|
-| sparrow | brown | 19       | 4        | 4.75    | 2.375   |
-| parrot  | green | 20       | 80       | 0.25    | 0.125   |
-| pigeon  | gray  | 50       | 6        | 8.33... | 4.16... |
-| eagle   | brown | 200      | 20       | 10      | 5       |
+| species | color | wingspan | lifespan | span |
+|---------|-------|----------|----------|------|
+| sparrow | brown | 19       | 4        | 23   |
+| parrot  | green | 20       | 80       | 100  |
+| pigeon  | gray  | 50       | 6        | 56   |
+| eagle   | brown | 200      | 20       | 220  |
 ```
 
 </details>
