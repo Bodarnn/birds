@@ -9,7 +9,7 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 
 ### Description
 
-Creates an example Bird object.
+\tCreates an example Bird object.
 
 ### Parameters
 
