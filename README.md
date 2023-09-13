@@ -9,16 +9,16 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 
 ```js
 let ba = new BirdArray();
-ba[0] = 'foo';
-ba[1] = 'bar';
-ba[2] = 'baz';
+ba[0] = 'a';
+ba[1] = 'b';
+ba[2] = 'c';
 ba.print();
 ```
 
 Output:
 
 ```
-['foo', 'bar', 'baz']
+['a', 'b', 'c']
 ```
 
 ## Bird.set()
@@ -68,8 +68,7 @@ let data = [
     {'foo': 'c', 'bar': 5, 'baz': 6}
 ];
 let bd = new Bird(data);
-let ba = bd['foo'];
-ba.print();
+bd['foo'].print();
 ```
 
 Output:
@@ -86,19 +85,18 @@ Output:
 ## BirdArray.add()
 
 ```js
-let data = [10, 20, 30];
+let data = [1, 2, 3];
 let ba = new BirdArray(data);
-ba = ba.add(5);
-ba.print();
+ba.add(10).print();
 ```
 
 Output:
 
 ```
-[15, 25, 35]
+[11, 12, 13]
 ```
 
-## Bird.example()
+## Bird.add()
 
 ```js
 let data = [
@@ -118,6 +116,47 @@ Output:
 | 'a' | 1   | 2   | 3   |
 | 'b' | 3   | 4   | 7   |
 | 'c' | 5   | 6   | 11  |
+```
+
+</details>
+
+<details>
+<summary>Subtract</summary>
+
+## BirdArray.sub()
+
+```js
+let data = [11, 12, 13];
+let ba = new BirdArray(data);
+ba.sub(10).print();
+```
+
+Output:
+
+```
+[1, 2, 3]
+```
+
+## Bird.example()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.sub(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+| foo | bar | baz | qux |
+| 'a' | 1   | 2   | -1  |
+| 'b' | 3   | 4   | -1  |
+| 'c' | 5   | 6   | -1  |
 ```
 
 </details>
