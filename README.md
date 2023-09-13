@@ -1,7 +1,5 @@
 # birds
 
-## Description
-
 Birds is a JavaScript library that provides fast and intuitive structures for manipulating and processing structured data. Birds is heavily inspired by Python Pandas and provides a similar syntax. This means that users familiar with Pandas and JavaScript can easily pick it up.
 
 <details>
@@ -69,6 +67,31 @@ Output:
 
 ```
 ['sparrow', 'parrot', 'pigeon', 'eagle', 'owl']
+```
+
+</details>
+
+<details>
+<summary>Add</summary>
+
+### Bird.add()
+
+```js
+const bird = Bird.example();
+bird["lingspan"] = bird.add(["lifespan", "wingspan"]);
+bird.print();
+```
+
+Output:
+
+```
+| species | color | diet  | weight | lifespan | wingspan | lingspan |
+|---------|-------|-------|--------|----------|----------|----------|
+| sparrow | brown | seeds | 24     | 4        | 19       | 23       |
+| parrot  | green | fruit | 150    | 80       | 20       | 100      |
+| pigeon  | gray  | seeds | 300    | 6        | 50       | 56       |
+| eagle   | brown | meat  | 4000   | 20       | 200      | 220      |
+| owl     | black | meat  | 1500   | 10       | 150      | 160      |
 ```
 
 </details>
