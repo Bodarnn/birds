@@ -60,7 +60,7 @@ Output:
 
 ```js
 const bd = new Bird();
-bd["diet"] = ['seeds', 'fruit', 'seeds', 'meat'];
+bd["diet"] = ["seeds", "fruit", "seeds", "meat"];
 bd["weight"] = [24, 150, 300, 4000];
 bd.print();
 ```
@@ -68,12 +68,12 @@ bd.print();
 Output:
 
 ```
-| diet  | weight |
-|-------|--------|
-| seeds | 24     |
-| fruit | 150    |
-| seeds | 300    |
-| meat  | 4000   |
+| diet    | weight |
+|---------|--------|
+| 'seeds' | 24     |
+| 'fruit' | 150    |
+| 'seeds' | 300    |
+| 'meat'  | 4000   |
 ```
 
 </details>
