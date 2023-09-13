@@ -564,42 +564,26 @@ class Bird {
 			{
 				"species": "sparrow",
 				"color": "brown",
-				"diet": "seeds",
-				"weight": 24,
-				"lifespan": 4,
-				"wingspan": 19
+				"wingspan": 19,
+				"lifespan": 4
 			},
 			{
 				"species": "parrot",
 				"color": "green",
-				"diet": "fruit",
-				"weight": 150,
-				"lifespan": 80,
-				"wingspan": 20
+				"wingspan": 20,
+				"lifespan": 80
 			},
 			{
 				"species": "pigeon",
 				"color": "gray",
-				"diet": "seeds",
-				"weight": 300,
-				"lifespan": 6,
-				"wingspan": 50
+				"wingspan": 50,
+				"lifespan": 6
 			},
 			{
 				"species": "eagle",
 				"color": "brown",
-				"diet": "meat",
-				"weight": 4000,
-				"lifespan": 20,
-				"wingspan": 200
-			},
-			{
-				"species": "owl",
-				"color": "black",
-				"diet": "meat",
-				"weight": 1500,
-				"lifespan": 10,
-				"wingspan": 150
+				"wingspan": 200,
+				"lifespan": 20
 			}
 		]);
 	}
