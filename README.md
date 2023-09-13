@@ -3,75 +3,41 @@
 Birds is a JavaScript library that provides fast and intuitive structures for manipulating and processing structured data. Birds is heavily inspired by Python Pandas and provides a similar syntax. This means that users familiar with Pandas and JavaScript can easily pick it up.
 
 <details>
-<summary>Example</summary>
-
-## BirdArray.example()
-
-```js
-let ba = BirdArray.example();
-ba.print();
-```
-
-Output:
-
-```
-['forest', 'jungle', 'city', 'wetlands']
-```
-
-## Bird.example()
-
-```js
-let bd = Bird.example();
-bd.print();
-```
-
-Output:
-
-```
-| species   | color   | wingspan | lifespan |
-|-----------|---------|----------|----------|
-| 'sparrow' | 'brown' | 19       | 4        |
-| 'parrot'  | 'green' | 20       | 80       |
-| 'pigeon'  | 'gray'  | 50       | 6        |
-| 'eagle'   | 'brown' | 200      | 20       |
-```
-
-</details>
-
-<details>
 <summary>Set</summary>
 
 ## BirdArray.set()
 
 ```js
-let ba = BirdArray.example();
-ba[0] = "foo";
+let ba = new BirdArray();
+ba[0] = 'foo';
+ba[1] = 'bar';
+ba[2] = 'baz';
 ba.print();
 ```
 
 Output:
 
 ```
-['foo', 'jungle', 'city', 'wetlands']
+['foo', 'bar', 'baz']
 ```
 
 ## Bird.set()
 
 ```js
-let bd = Bird.example();
-bd["foo"] = [1, 2, 3, 4];
+let bd = new Bird();
+bd['foo'] = ['a', 'b', 'c'];
+bd['bar'] = [1, 3, 5];
+bd['baz'] = [2, 4, 6];
 bd.print();
 ```
 
 Output:
 
 ```
-| species   | color   | wingspan | lifespan | foo |
-|-----------|---------|----------|----------|-----|
-| 'sparrow' | 'brown' | 19       | 4        | 1   |
-| 'parrot'  | 'green' | 20       | 80       | 2   |
-| 'pigeon'  | 'gray'  | 50       | 6        | 3   |
-| 'eagle'   | 'brown' | 200      | 20       | 4   |
+| foo | bar | baz |
+| 'a' | 1   | 2   |
+| 'b' | 3   | 4   |
+| 'c' | 5   | 6   |
 ```
 
 </details>
@@ -82,28 +48,34 @@ Output:
 ## BirdArray.get()
 
 ```js
-let ba = BirdArray.example();
+let data = ['foo', 'bar', 'baz'];
+let ba = new BirdArray(data);
 ba[0];
 ```
 
 Output:
 
 ```
-'forest'
+'foo'
 ```
 
 ## Bird.get()
 
 ```js
-let bd = Bird.example();
-let ba = bd["species"];
+let data = [
+    {"foo": "a", "bar": 1, "baz": 2},
+    {"foo": "b", "bar": 3, "baz": 4},
+    {"foo": "c", "bar": 5, "baz": 6}
+];
+let bd = new Bird(data);
+let ba = bd["foo"];
 ba.print();
 ```
 
 Output:
 
 ```
-['sparrow', 'parrot', 'pigeon', 'eagle']
+['a', 'b', 'c']
 ```
 
 </details>
@@ -114,34 +86,38 @@ Output:
 ## BirdArray.add()
 
 ```js
-let ba = BirdArray.example();
-ba = ba.add(" biome");
+let data = [10, 20, 30];
+let ba = new BirdArray(data);
+ba = ba.add(5);
 ba.print();
 ```
 
 Output:
 
 ```
-['forest biome', 'jungle biome', 'city biome', 'wetlands biome']
+[15, 25, 35]
 ```
 
 ## Bird.example()
 
 ```js
-let bd = Bird.example();
-bd["foo"] = bd.add(["wingspan", "lifespan"]);
+let data = [
+    {"foo": "a", "bar": 1, "baz": 2},
+    {"foo": "b", "bar": 3, "baz": 4},
+    {"foo": "c", "bar": 5, "baz": 6}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.add(['bar', 'baz']);
 bd.print();
 ```
 
 Output:
 
 ```
-| species   | color   | wingspan | lifespan | foo |
-|-----------|---------|----------|----------|-----|
-| 'sparrow' | 'brown' | 19       | 4        | 23  |
-| 'parrot'  | 'green' | 20       | 80       | 100 |
-| 'pigeon'  | 'gray'  | 50       | 6        | 56  |
-| 'eagle'   | 'brown' | 200      | 20       | 220 |
+| foo | bar | baz | qux |
+| 'a' | 1   | 2   | 3   |
+| 'b' | 3   | 4   | 7   |
+| 'c' | 5   | 6   | 11  |
 ```
 
 </details>
