@@ -9,7 +9,7 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 
 ```js
 let ba = BirdArray.example();
-ba.print()
+ba.print();
 ```
 
 Output:
@@ -104,6 +104,44 @@ Output:
 
 ```
 ['sparrow', 'parrot', 'pigeon', 'eagle']
+```
+
+</details>
+
+<details>
+<summary>Add</summary>
+
+## BirdArray.add()
+
+```js
+let ba = BirdArray.example();
+ba = ba.add(" biome");
+ba.print();
+```
+
+Output:
+
+```
+['forest biome', 'jungle biome', 'city biome', 'wetlands biome']
+```
+
+## Bird.example()
+
+```js
+let bd = Bird.example();
+bd["foo"] = bd.add(["wingspan", "lifespan"]);
+bd.print();
+```
+
+Output:
+
+```
+| species   | color   | wingspan | lifespan | foo |
+|-----------|---------|----------|----------|-----|
+| 'sparrow' | 'brown' | 19       | 4        | 23  |
+| 'parrot'  | 'green' | 20       | 80       | 100 |
+| 'pigeon'  | 'gray'  | 50       | 6        | 56  |
+| 'eagle'   | 'brown' | 200      | 20       | 220 |
 ```
 
 </details>
