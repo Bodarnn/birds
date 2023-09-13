@@ -67,3 +67,28 @@ Output:
 ```
 
 </details>
+
+<details>
+<summary>Add</summary>
+
+## Bird.add()
+
+```js
+const bird = Bird.example();
+bird["foo"].add(["lifespan", "wingspan"]);
+bird["bar"].add(1);
+bird.print();
+```
+
+Output:
+
+```
+| (index) | species | color | lifespan | wingspan | foo | bar |
+|---------|---------|-------|----------|----------|-----|-----|
+| 0       | sparrow | brown | 4        | 19       | 23  | 24  |
+| 1       | parrot  | green | 80       | 20       | 100 | 101 |
+| 2       | pigeon  | gray  | 6        | 50       | 56  | 57  |
+| 3       | eagle   | brown | 20       | 200      | 220 | 221 |
+```
+
+</details>
