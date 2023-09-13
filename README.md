@@ -75,7 +75,7 @@ Output:
 
 ```js
 const bird = Bird.example();
-bird["foo"].add(["wingspan", "lifespan"]);
+bird["foo"] = bird.add(["wingspan", "lifespan"]);
 bird["bar"] = bird["foo"].add(1);
 bird.print();
 ```
