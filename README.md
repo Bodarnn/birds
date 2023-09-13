@@ -7,15 +7,33 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 <details>
 <summary>Example</summary>
 
+### Bird
+
 This is some text inside the accordion.
 
-### Example
+Example:
 
 ```js
 console.log("Hellow, world!")
 ```
 
-### Output
+Output:
+
+```
+Hello, world!
+```
+
+### BirdArray
+
+This is some text inside the accordion.
+
+Example:
+
+```js
+console.log("Hellow, world!")
+```
+
+Output:
 
 ```
 Hello, world!
