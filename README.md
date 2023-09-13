@@ -87,7 +87,8 @@ Output:
 ```js
 let data = [1, 2, 3];
 let ba = new BirdArray(data);
-ba.add(10).print();
+ba = ba.add(10)
+ba.print();
 ```
 
 Output:
@@ -128,7 +129,8 @@ Output:
 ```js
 let data = [11, 12, 13];
 let ba = new BirdArray(data);
-ba.sub(10).print();
+ba = ba.sub(10)
+ba.print();
 ```
 
 Output:
@@ -157,6 +159,90 @@ Output:
 | 'a' | 1   | 2   | -1  |
 | 'b' | 3   | 4   | -1  |
 | 'c' | 5   | 6   | -1  |
+```
+
+</details>
+
+<details>
+<summary>Multiply</summary>
+
+## BirdArray.mult()
+
+```js
+let data = [1, 2, 3];
+let ba = new BirdArray(data);
+ba = ba.mult(10)
+ba.print();
+```
+
+Output:
+
+```
+[10, 20, 30]
+```
+
+## Bird.mult()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.mult(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+| foo | bar | baz | qux |
+| 'a' | 1   | 2   | 2   |
+| 'b' | 3   | 4   | 12  |
+| 'c' | 5   | 6   | 30  |
+```
+
+</details>
+
+<details>
+<summary>Divide</summary>
+
+## BirdArray.div()
+
+```js
+let data = [10, 20, 30];
+let ba = new BirdArray(data);
+ba = ba.div(10)
+ba.print();
+```
+
+Output:
+
+```
+[1, 2, 3]
+```
+
+## Bird.div()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.div(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+| foo | bar | baz | qux     |
+| 'a' | 1   | 2   | 0.5     |
+| 'b' | 3   | 4   | 0.75    |
+| 'c' | 5   | 6   | 0.83... |
 ```
 
 </details>
