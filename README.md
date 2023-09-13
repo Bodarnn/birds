@@ -63,12 +63,12 @@ Output:
 
 ```js
 let data = [
-    {"foo": "a", "bar": 1, "baz": 2},
-    {"foo": "b", "bar": 3, "baz": 4},
-    {"foo": "c", "bar": 5, "baz": 6}
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
 ];
 let bd = new Bird(data);
-let ba = bd["foo"];
+let ba = bd['foo'];
 ba.print();
 ```
 
@@ -102,9 +102,9 @@ Output:
 
 ```js
 let data = [
-    {"foo": "a", "bar": 1, "baz": 2},
-    {"foo": "b", "bar": 3, "baz": 4},
-    {"foo": "c", "bar": 5, "baz": 6}
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
 ];
 let bd = new Bird(data);
 bd['qux'] = bd.add(['bar', 'baz']);
