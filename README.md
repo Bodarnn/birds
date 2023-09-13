@@ -15,12 +15,12 @@ bird.print();
 Output:
 
 ```
-| (index) | species | color | lifespan | wingspan |
-|---------|---------|-------|----------|----------|
-| 0       | sparrow | brown | 4        | 19       |
-| 1       | parrot  | green | 80       | 20       |
-| 2       | pigeon  | gray  | 6        | 50       |
-| 3       | eagle   | brown | 20       | 200      |
+| species | color | wingspan | lifespan |
+|---------|-------|----------|----------|
+| sparrow | brown | 19       | 4        |
+| parrot  | green | 20       | 80       |
+| pigeon  | gray  | 50       | 6        |
+| eagle   | brown | 200      | 20       |
 ```
 
 </details>
@@ -40,12 +40,12 @@ bird.print();
 Output:
 
 ```
-| (index) | diet  | weight |
-|---------|-------|--------|
-| 0       | seeds | 24     |
-| 1       | fruit | 150    |
-| 2       | seeds | 300    |
-| 3       | meat  | 4000   |
+| diet  | weight |
+|-------|--------|
+| seeds | 24     |
+| fruit | 150    |
+| seeds | 300    |
+| meat  | 4000   |
 ```
 
 </details>
@@ -83,12 +83,12 @@ bird.print();
 Output:
 
 ```
-| (index) | species | color | lifespan | wingspan | foo | bar |
-|---------|---------|-------|----------|----------|-----|-----|
-| 0       | sparrow | brown | 4        | 19       | 23  | 24  |
-| 1       | parrot  | green | 80       | 20       | 100 | 101 |
-| 2       | pigeon  | gray  | 6        | 50       | 56  | 57  |
-| 3       | eagle   | brown | 20       | 200      | 220 | 221 |
+| species | color | wingspan | lifespan | foo | bar |
+|---------|-------|----------|----------|-----|-----|
+| sparrow | brown | 19       | 4        | 23  | 24  |
+| parrot  | green | 20       | 80       | 100 | 101 |
+| pigeon  | gray  | 50       | 6        | 56  | 57  |
+| eagle   | brown | 200      | 20       | 220 | 221 |
 ```
 
 </details>
