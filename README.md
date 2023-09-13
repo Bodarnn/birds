@@ -8,7 +8,7 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 ## BirdArray.example()
 
 ```js
-const ba = BirdArray.example();
+let ba = BirdArray.example();
 ba.print()
 ```
 
@@ -21,7 +21,7 @@ Output:
 ## Bird.example()
 
 ```js
-const bd = Bird.example();
+let bd = Bird.example();
 bd.print();
 ```
 
@@ -44,38 +44,34 @@ Output:
 ## BirdArray.set()
 
 ```js
-const ba = new BirdArray();
-ba[0] = "seeds";
-ba[1] = "fruit";
-ba[2] = "seeds";
-ba[3] = "meat";
+let ba = BirdArray.example();
+ba[0] = "foo";
 ba.print();
 ```
 
 Output:
 
 ```
-['seeds', 'fruit', 'seeds', 'meat']
+['foo', 'jungle', 'city', 'wetlands']
 ```
 
 ## Bird.set()
 
 ```js
-const bd = new Bird();
-bd["habitat"] = BirdArray.example();
-bd["weight"] = [24, 150, 300, 4000];
+let bd = Bird.example();
+bd["foo"] = [1, 2, 3, 4];
 bd.print();
 ```
 
 Output:
 
 ```
-| habitat    | weight |
-|------------|--------|
-| 'forest'   | 24     |
-| 'jungle'   | 150    |
-| 'city'     | 300    |
-| 'wetlands' | 4000   |
+| species   | color   | wingspan | lifespan | foo |
+|-----------|---------|----------|----------|-----|
+| 'sparrow' | 'brown' | 19       | 4        | 1   |
+| 'parrot'  | 'green' | 20       | 80       | 2   |
+| 'pigeon'  | 'gray'  | 50       | 6        | 3   |
+| 'eagle'   | 'brown' | 200      | 20       | 4   |
 ```
 
 </details>
@@ -86,66 +82,28 @@ Output:
 ## BirdArray.get()
 
 ```js
-const ba = BirdArray.example();
-ba[2];
+let ba = BirdArray.example();
+ba[0];
 ```
 
 Output:
 
 ```
-'city'
+'forest'
 ```
 
 ## Bird.get()
 
 ```js
-const bd = Bird.example();
-const ba = bd["color"];
+let bd = Bird.example();
+let ba = bd["species"];
 ba.print();
 ```
 
 Output:
 
 ```
-['brown', 'green', 'gray', 'brown']
-```
-
-</details>
-
-<details>
-<summary>Add</summary>
-
-## BirdArray.add()
-
-```js
-let ba = BirdArray.example();
-ba = ba.add(" biome")
-ba.print();
-```
-
-Output:
-
-```
-['forest biome', 'jungle biome', 'city biome', 'wetlands biome']
-```
-
-## Bird.add()
-
-```js
-const bd = Bird.example();
-bd["span"] = bd.add(["wingspan", "lifespan"]);
-bd.print();
-```
-
-Output:
-
-```
-| species | color | wingspan | lifespan | span |
-|---------|-------|----------|----------|------|
-| sparrow | brown | 19       | 4        | 23   |
-| parrot  | green | 20       | 80       | 100  |
-| pigeon  | gray  | 50       | 6        | 56   |
-| eagle   | brown | 200      | 20       | 220  |
+['sparrow', 'parrot', 'pigeon', 'eagle']
 ```
 
 </details>
