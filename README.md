@@ -5,22 +5,33 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 <details>
 <summary>Example</summary>
 
-## Bird.example()
+## BirdArray.example()
 
 ```js
-const bird = Bird.example();
-bird.print();
+BirdArray.example().array();
 ```
 
 Output:
 
 ```
-| species | color | wingspan | lifespan |
-|---------|-------|----------|----------|
-| sparrow | brown | 19       | 4        |
-| parrot  | green | 20       | 80       |
-| pigeon  | gray  | 50       | 6        |
-| eagle   | brown | 200      | 20       |
+['forest', 'jungle', 'city', 'wetlands']
+```
+
+## Bird.example()
+
+```js
+Bird.example().print();
+```
+
+Output:
+
+```
+| species   | color   | wingspan | lifespan |
+|-----------|---------|----------|----------|
+| 'sparrow' | 'brown' | 19       | 4        |
+| 'parrot'  | 'green' | 20       | 80       |
+| 'pigeon'  | 'gray'  | 50       | 6        |
+| 'eagle'   | 'brown' | 200      | 20       |
 ```
 
 </details>
@@ -28,13 +39,30 @@ Output:
 <details>
 <summary>Set</summary>
 
+## BirdArray.set()
+
+```js
+const ba = new BirdArray();
+ba[0] = "seeds";
+ba[1] = "fruit";
+ba[2] = "seeds";
+ba[3] = "meat";
+ba.array();
+```
+
+Output:
+
+```
+['seeds', 'fruit', 'seeds', 'meat']
+```
+
 ## Bird.set()
 
 ```js
-const bird = new Bird();
-bird["diet"] = ["seeds", "fruit", "seeds", "meat"];
-bird["weight"] = [24, 150, 300, 4000];
-bird.print();
+const bd = new Bird();
+bd["diet"] = ['seeds', 'fruit', 'seeds', 'meat'];
+bd["weight"] = [24, 150, 300, 4000];
+bd.print();
 ```
 
 Output:
@@ -53,11 +81,24 @@ Output:
 <details>
 <summary>Get</summary>
 
+## BirdArray.get()
+
+```js
+const ba = BirdArray.example();
+ba[0];
+```
+
+Output:
+
+```
+'forest'
+```
+
 ## Bird.get()
 
 ```js
-const bird = Bird.example();
-bird["species"].array();
+const bd = Bird.example();
+bd["species"].array();
 ```
 
 Output:
