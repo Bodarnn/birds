@@ -35,6 +35,7 @@ Output:
 
 ```
 | foo | bar | baz |
+|-----|-----|-----|
 | 'a' | 1   | 2   |
 | 'b' | 3   | 4   |
 | 'c' | 5   | 6   |
@@ -114,6 +115,7 @@ Output:
 
 ```
 | foo | bar | baz | qux |
+|-----|-----|-----|-----|
 | 'a' | 1   | 2   | 3   |
 | 'b' | 3   | 4   | 7   |
 | 'c' | 5   | 6   | 11  |
@@ -156,6 +158,7 @@ Output:
 
 ```
 | foo | bar | baz | qux |
+|-----|-----|-----|-----|
 | 'a' | 1   | 2   | -1  |
 | 'b' | 3   | 4   | -1  |
 | 'c' | 5   | 6   | -1  |
@@ -198,6 +201,7 @@ Output:
 
 ```
 | foo | bar | baz | qux |
+|-----|-----|-----|-----|
 | 'a' | 1   | 2   | 2   |
 | 'b' | 3   | 4   | 12  |
 | 'c' | 5   | 6   | 30  |
@@ -240,9 +244,96 @@ Output:
 
 ```
 | foo | bar | baz | qux     |
+|-----|-----|-----|---------|
 | 'a' | 1   | 2   | 0.5     |
 | 'b' | 3   | 4   | 0.75    |
 | 'c' | 5   | 6   | 0.83... |
+```
+
+</details>
+
+<details>
+<summary>Power</summary>
+
+## BirdArray.power()
+
+```js
+let data = [1, 2, 3];
+let ba = new BirdArray(data);
+ba = ba.power(2)
+ba.print();
+```
+
+Output:
+
+```
+[1, 4, 9]
+```
+
+## Bird.power()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.power(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+| foo | bar | baz | qux   |
+|-----|-----|-----|-------|
+| 'a' | 1   | 2   | 1     |
+| 'b' | 3   | 4   | 81    |
+| 'c' | 5   | 6   | 15625 |
+```
+
+</details>
+
+<details>
+<summary>Root</summary>
+
+## BirdArray.root()
+
+```js
+let data = [1, 4, 9];
+let ba = new BirdArray(data);
+ba = ba.root(2)
+ba.print();
+```
+
+Output:
+
+```
+[1, 2, 3]
+```
+
+## Bird.power()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.root(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+| foo | bar | baz | qux     |
+|-----|-----|-----|---------|
+| 'a' | 1   | 2   | 1       |
+| 'b' | 3   | 4   | 1.32... |
+| 'c' | 5   | 6   | 1.31... |
 ```
 
 </details>
