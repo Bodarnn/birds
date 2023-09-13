@@ -5,7 +5,7 @@ Birds is a JavaScript library that provides fast and intuitive structures for ma
 <details>
 <summary>Example</summary>
 
-### Bird.example()
+## Bird.example()
 
 ```js
 const bird = Bird.example();
@@ -15,13 +15,12 @@ bird.print();
 Output:
 
 ```
-| species | color | diet  | weight | lifespan | wingspan |
-|---------|-------|-------|--------|----------|----------|
-| sparrow | brown | seeds | 24     | 4        | 19       |
-| parrot  | green | fruit | 150    | 80       | 20       |
-| pigeon  | gray  | seeds | 300    | 6        | 50       |
-| eagle   | brown | meat  | 4000   | 20       | 200      |
-| owl     | black | meat  | 1500   | 10       | 150      |
+| (index) | species | color | lifespan | wingspan |
+|---------|---------|-------|----------|----------|
+| 0       | sparrow | brown | 4        | 19       |
+| 1       | parrot  | green | 80       | 20       |
+| 2       | pigeon  | gray  | 6        | 50       |
+| 3       | eagle   | brown | 20       | 200      |
 ```
 
 </details>
@@ -29,25 +28,24 @@ Output:
 <details>
 <summary>Set</summary>
 
-### Bird.set()
+## Bird.set()
 
 ```js
 const bird = new Bird();
-bird["species"] = ["sparrow", "parrot", "pigeon", "eagle", "owl"];
-bird["wingspan"] = [19, 20, 50, 200, 150];
+bird["diet"] = ["seeds", "fruit", "seeds", "meat"];
+bird["weight"] = [24, 150, 300, 4000];
 bird.print();
 ```
 
 Output:
 
 ```
-| species | wingspan |
-|---------|----------|
-| sparrow | 19       |
-| parrot  | 20       |
-| pigeon  | 50       |
-| eagle   | 200      |
-| owl     | 150      |
+| (index) | diet  | weight |
+|---------|-------|--------|
+| 0       | seeds | 24     |
+| 1       | fruit | 150    |
+| 2       | seeds | 300    |
+| 3       | meat  | 4000   |
 ```
 
 </details>
@@ -55,43 +53,17 @@ Output:
 <details>
 <summary>Get</summary>
 
-### Bird.get()
+## Bird.get()
 
 ```js
 const bird = Bird.example();
-const species = bird["species"].array();
-console.log(species);
+bird["species"].array();
 ```
 
 Output:
 
 ```
-['sparrow', 'parrot', 'pigeon', 'eagle', 'owl']
-```
-
-</details>
-
-<details>
-<summary>Add</summary>
-
-### Bird.add()
-
-```js
-const bird = Bird.example();
-bird["lingspan"] = bird.add(["lifespan", "wingspan"]);
-bird.print();
-```
-
-Output:
-
-```
-| species | color | diet  | weight | lifespan | wingspan | lingspan |
-|---------|-------|-------|--------|----------|----------|----------|
-| sparrow | brown | seeds | 24     | 4        | 19       | 23       |
-| parrot  | green | fruit | 150    | 80       | 20       | 100      |
-| pigeon  | gray  | seeds | 300    | 6        | 50       | 56       |
-| eagle   | brown | meat  | 4000   | 20       | 200      | 220      |
-| owl     | black | meat  | 1500   | 10       | 150      | 160      |
+['sparrow', 'parrot', 'pigeon', 'eagle']
 ```
 
 </details>
