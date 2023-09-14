@@ -274,9 +274,9 @@ Output:
 
 ```js
 let data = [
-    {'foo': 'a', 'bar': 1, 'baz': 2},
-    {'foo': 'b', 'bar': 3, 'baz': 4},
-    {'foo': 'c', 'bar': 5, 'baz': 6}
+    {'foo': 'a', 'bar': 2, 'baz': 1},
+    {'foo': 'b', 'bar': 2, 'baz': 2},
+    {'foo': 'c', 'bar': 2, 'baz': 3}
 ];
 let bd = new Bird(data);
 bd['qux'] = bd.power(['bar', 'baz']);
@@ -286,11 +286,11 @@ bd.print();
 Output:
 
 ```
-| foo | bar | baz | qux   |
-|-----|-----|-----|-------|
-| 'a' | 1   | 2   | 1     |
-| 'b' | 3   | 4   | 81    |
-| 'c' | 5   | 6   | 15625 |
+| foo | bar | baz | qux |
+|-----|-----|-----|-----|
+| 'a' | 2   | 1   | 2   |
+| 'b' | 2   | 2   | 4   |
+| 'c' | 2   | 3   | 8   |
 ```
 
 </details>
@@ -317,9 +317,9 @@ Output:
 
 ```js
 let data = [
-    {'foo': 'a', 'bar': 1, 'baz': 2},
-    {'foo': 'b', 'bar': 81, 'baz': 4},
-    {'foo': 'c', 'bar': 15625, 'baz': 6}
+    {'foo': 'a', 'bar': 2, 'baz': 1},
+    {'foo': 'b', 'bar': 4, 'baz': 2},
+    {'foo': 'c', 'bar': 8, 'baz': 3}
 ];
 let bd = new Bird(data);
 bd['qux'] = bd.root(['bar', 'baz']);
@@ -329,11 +329,54 @@ bd.print();
 Output:
 
 ```
-| foo | bar   | baz | qux |
-|-----|-------|-----|-----|
-| 'a' | 1     | 2   | 1   |
-| 'b' | 81    | 4   | 3   |
-| 'c' | 15625 | 6   | 5   |
+| foo | bar | baz | qux |
+|-----|-----|-----|-----|
+| 'a' | 2   | 1   | 2   |
+| 'b' | 4   | 2   | 2   |
+| 'c' | 8   | 3   | 2   |
+```
+
+</details>
+
+<details>
+<summary>Log</summary>
+
+## BirdArray.log()
+
+```js
+let data = [1, 2, 3];
+let ba = new BirdArray(data);
+ba = ba.log(10)
+ba.print();
+```
+
+Output:
+
+```
+[0, 0.30, 0.48]
+```
+
+## Bird.log()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 2, 'baz': 2},
+    {'foo': 'b', 'bar': 2, 'baz': 10},
+    {'foo': 'c', 'bar': 2, 'baz': Math.E}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.log(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+| foo | bar | baz  | qux  |
+|-----|-----|------|------|
+| 'a' | 2   | 2    | 1    |
+| 'b' | 2   | 10   | 0.30 |
+| 'c' | 2   | 2.72 | 0.69 |
 ```
 
 </details>
