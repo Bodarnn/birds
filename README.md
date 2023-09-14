@@ -380,3 +380,84 @@ Output:
 ```
 
 </details>
+
+<details>
+<summary>Min</summary>
+
+## BirdArray.min()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.min()
+```
+
+Output:
+
+```
+1
+```
+
+## Bird.min()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.min(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+1
+```
+
+</details>
+
+<details>
+<summary>Max</summary>
+
+## BirdArray.max()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.max()
+```
+
+Output:
+
+```
+9
+```
+
+## Bird.max()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd['qux'] = bd.max(['bar', 'baz']);
+bd.print();
+```
+
+Output:
+
+```
+10
+```
+
+</details>
+
