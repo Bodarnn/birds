@@ -499,6 +499,45 @@ Output:
 </details>
 
 <details>
+<summary>Median</summary>
+
+## BirdArray.median()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.median()
+```
+
+Output:
+
+```
+5
+```
+
+## Bird.median()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd.median(['bar', 'baz']);
+```
+
+Output:
+
+```
+5.5
+```
+
+</details>
+
+<details>
 <summary>First-quartile</summary>
 
 ## BirdArray.q1()
@@ -533,6 +572,84 @@ Output:
 
 ```
 3
+```
+
+</details>
+
+<details>
+<summary>Third-quartile</summary>
+
+## BirdArray.q3()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.q3()
+```
+
+Output:
+
+```
+7
+```
+
+## Bird.q3()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd.q3(['bar', 'baz']);
+```
+
+Output:
+
+```
+8
+```
+
+</details>
+
+<details>
+<summary>Inter-quartile range</summary>
+
+## BirdArray.range()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.iqr()
+```
+
+Output:
+
+```
+4
+```
+
+## Bird.range()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd.iqr(['bar', 'baz']);
+```
+
+Output:
+
+```
+5
 ```
 
 </details>
