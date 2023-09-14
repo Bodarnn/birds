@@ -459,3 +459,80 @@ Output:
 
 </details>
 
+<details>
+<summary>Range</summary>
+
+## BirdArray.range()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.range()
+```
+
+Output:
+
+```
+8
+```
+
+## Bird.range()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd.range(['bar', 'baz']);
+```
+
+Output:
+
+```
+9
+```
+
+</details>
+
+<details>
+<summary>First-quartile</summary>
+
+## BirdArray.q1()
+
+```js
+let data = [1, 3, 5, 7, 9];
+let ba = new BirdArray(data);
+ba.q1()
+```
+
+Output:
+
+```
+3
+```
+
+## Bird.q1()
+
+```js
+let data = [
+    {'foo': 'a', 'bar': 1, 'baz': 2},
+    {'foo': 'b', 'bar': 3, 'baz': 4},
+    {'foo': 'c', 'bar': 5, 'baz': 6},
+    {'foo': 'c', 'bar': 7, 'baz': 8},
+    {'foo': 'c', 'bar': 9, 'baz': 10}
+];
+let bd = new Bird(data);
+bd.q1(['bar', 'baz']);
+```
+
+Output:
+
+```
+2
+```
+
+</details>
