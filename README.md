@@ -49,7 +49,7 @@ Output:
 ## BirdArray.get()
 
 ```js
-let data = ['foo', 'bar', 'baz'];
+let data = ['a', 'b', 'c'];
 let ba = new BirdArray(data);
 ba[0];
 ```
@@ -57,7 +57,7 @@ ba[0];
 Output:
 
 ```
-'foo'
+'a'
 ```
 
 ## Bird.get()
@@ -88,14 +88,14 @@ Output:
 ```js
 let data = [1, 2, 3];
 let ba = new BirdArray(data);
-ba = ba.add(10)
+ba = ba.add(1)
 ba.print();
 ```
 
 Output:
 
 ```
-[11, 12, 13]
+[2, 3, 4]
 ```
 
 ## Bird.add()
@@ -129,9 +129,9 @@ Output:
 ## BirdArray.sub()
 
 ```js
-let data = [11, 12, 13];
+let data = [2, 3, 4];
 let ba = new BirdArray(data);
-ba = ba.sub(10)
+ba = ba.sub(1)
 ba.print();
 ```
 
@@ -145,9 +145,9 @@ Output:
 
 ```js
 let data = [
-    {'foo': 'a', 'bar': 1, 'baz': 2},
-    {'foo': 'b', 'bar': 3, 'baz': 4},
-    {'foo': 'c', 'bar': 5, 'baz': 6}
+    {'foo': 'a', 'bar': 3, 'baz': 2},
+    {'foo': 'b', 'bar': 7, 'baz': 4},
+    {'foo': 'c', 'bar': 11, 'baz': 6}
 ];
 let bd = new Bird(data);
 bd['qux'] = bd.sub(['bar', 'baz']);
@@ -159,9 +159,9 @@ Output:
 ```
 | foo | bar | baz | qux |
 |-----|-----|-----|-----|
-| 'a' | 1   | 2   | -1  |
-| 'b' | 3   | 4   | -1  |
-| 'c' | 5   | 6   | -1  |
+| 'a' | 3   | 2   | 1   |
+| 'b' | 7   | 4   | 3   |
+| 'c' | 11  | 6   | 5   |
 ```
 
 </details>
@@ -174,14 +174,14 @@ Output:
 ```js
 let data = [1, 2, 3];
 let ba = new BirdArray(data);
-ba = ba.mult(10)
+ba = ba.mult(2)
 ba.print();
 ```
 
 Output:
 
 ```
-[10, 20, 30]
+[2, 4, 6]
 ```
 
 ## Bird.mult()
@@ -215,9 +215,9 @@ Output:
 ## BirdArray.div()
 
 ```js
-let data = [10, 20, 30];
+let data = [2, 4, 6];
 let ba = new BirdArray(data);
-ba = ba.div(10)
+ba = ba.div(2)
 ba.print();
 ```
 
@@ -231,9 +231,9 @@ Output:
 
 ```js
 let data = [
-    {'foo': 'a', 'bar': 1, 'baz': 2},
-    {'foo': 'b', 'bar': 3, 'baz': 4},
-    {'foo': 'c', 'bar': 5, 'baz': 6}
+    {'foo': 'a', 'bar': 2, 'baz': 2},
+    {'foo': 'b', 'bar': 12, 'baz': 4},
+    {'foo': 'c', 'bar': 30, 'baz': 6}
 ];
 let bd = new Bird(data);
 bd['qux'] = bd.div(['bar', 'baz']);
@@ -243,11 +243,11 @@ bd.print();
 Output:
 
 ```
-| foo | bar | baz | qux     |
-|-----|-----|-----|---------|
-| 'a' | 1   | 2   | 0.5     |
-| 'b' | 3   | 4   | 0.75    |
-| 'c' | 5   | 6   | 0.83... |
+| foo | bar | baz | qux |
+|-----|-----|-----|-----|
+| 'a' | 2   | 2   | 1   |
+| 'b' | 12  | 4   | 2   |
+| 'c' | 30  | 6   | 3   |
 ```
 
 </details>
