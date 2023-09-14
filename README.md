@@ -551,7 +551,7 @@ ba.q1()
 Output:
 
 ```
-3
+2
 ```
 
 ## Bird.q1()
@@ -590,7 +590,7 @@ ba.q3()
 Output:
 
 ```
-7
+8
 ```
 
 ## Bird.q3()
@@ -618,7 +618,7 @@ Output:
 <details>
 <summary>Inter-quartile range</summary>
 
-## BirdArray.range()
+## BirdArray.iqr()
 
 ```js
 let data = [1, 3, 5, 7, 9];
@@ -629,10 +629,10 @@ ba.iqr()
 Output:
 
 ```
-4
+6
 ```
 
-## Bird.range()
+## Bird.iqr()
 
 ```js
 let data = [
