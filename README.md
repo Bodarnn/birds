@@ -86,7 +86,7 @@ Output:
 ## BirdArray.add()
 
 ```js
-let data = [1, 2, 3];
+let data = [1, 3, 5];
 let ba = new BirdArray(data);
 ba = ba.add(1)
 ba.print();
@@ -95,7 +95,7 @@ ba.print();
 Output:
 
 ```
-[2, 3, 4]
+[2, 4, 6]
 ```
 
 ## Bird.add()
@@ -129,7 +129,7 @@ Output:
 ## BirdArray.sub()
 
 ```js
-let data = [2, 3, 4];
+let data = [2, 4, 6];
 let ba = new BirdArray(data);
 ba = ba.sub(1)
 ba.print();
@@ -138,7 +138,7 @@ ba.print();
 Output:
 
 ```
-[1, 2, 3]
+[1, 3, 5]
 ```
 
 ## Bird.sub()
@@ -313,13 +313,13 @@ Output:
 [1, 2, 3]
 ```
 
-## Bird.power()
+## Bird.root()
 
 ```js
 let data = [
     {'foo': 'a', 'bar': 1, 'baz': 2},
-    {'foo': 'b', 'bar': 3, 'baz': 4},
-    {'foo': 'c', 'bar': 5, 'baz': 6}
+    {'foo': 'b', 'bar': 81, 'baz': 4},
+    {'foo': 'c', 'bar': 15625, 'baz': 6}
 ];
 let bd = new Bird(data);
 bd['qux'] = bd.root(['bar', 'baz']);
@@ -329,11 +329,11 @@ bd.print();
 Output:
 
 ```
-| foo | bar | baz | qux     |
-|-----|-----|-----|---------|
-| 'a' | 1   | 2   | 1       |
-| 'b' | 3   | 4   | 1.32... |
-| 'c' | 5   | 6   | 1.31... |
+| foo | bar   | baz | qux |
+|-----|-------|-----|-----|
+| 'a' | 1     | 2   | 1   |
+| 'b' | 81    | 4   | 3   |
+| 'c' | 15625 | 6   | 5   |
 ```
 
 </details>
