@@ -44,6 +44,19 @@ class BirdArray {
 	}
 
 	/**
+	 * Creates a BirdArray about birds!
+	 * @returns {BirdArray} A BirdArray.
+	 */
+	static example() {
+		return new BirdArray([
+			"forest",
+			"jungle",
+			"city",
+			"wetlands"
+		])
+	}
+
+	/**
 	 * Converts a BirdArray to an Array.
 	 * @returns {Array} An Array.
 	 */
@@ -52,10 +65,10 @@ class BirdArray {
 	} // TODO: this.data.slice()?
 
 	/**
-     * Calls a function for each element.
-     * @param {function} callback - A callback function.
-     * @returns {BirdArray} A BirdArray.
-     */
+	 * Calls a function for each element.
+	 * @param {function} callback - A callback function.
+	 * @returns {BirdArray} A BirdArray.
+	 */
 	map(callback) {
 		const data = this.data;
 		const n = data.length;
@@ -169,17 +182,17 @@ class BirdArray {
 	 * @returns {BirdArray} A BirdArray.
 	 */
 	log(x = Math.E) {
-        const data = this.data;
-        const n = data.length;
-        let result = new Array(n);
-        for (let i = 0; i < n; i++) {
-            const val = data[i];
+		const data = this.data;
+		const n = data.length;
+		let result = new Array(n);
+		for (let i = 0; i < n; i++) {
+			const val = data[i];
 			const num = Math.log(val);
 			const den = Math.log(x);
-            result[i] = num / den;
-        }
-        return new BirdArray(result);
-    }
+			result[i] = num / den;
+		}
+		return new BirdArray(result);
+	}
 
 	/**
 	 * Finds the minimum value.
@@ -252,18 +265,21 @@ class BirdArray {
 	 */
 	q1() {
 		const data = this.data;
-		const n = data.length;
-		const result = data.slice();
+		let result = data.slice();
 		result.sort((a, b) => {
 			if (a > b) return 1;
 			if (a < b) return -1;
 			return 0;
 		});
-		const i = Math.floor(n / 4);
-		if (n % 4 === 0) {
-			return (result[i - 1] + result[i]) / 2;
+		const n = data.length;
+		const i = Math.floor(n / 2);
+		result = result.slice(0, i);
+		const m = result.length;
+		const j = Math.floor(m / 2);
+		if (m % 2 === 0) {
+			return (result[j - 1] + result[j]) / 2;
 		} else {
-			return result[i];
+			return result[j];
 		}
 	}
 
@@ -273,20 +289,23 @@ class BirdArray {
 	 */
 	q3() {
 		const data = this.data;
-		const n = data.length;
-		const result = data.slice();
+		let result = data.slice();
 		result.sort((a, b) => {
 			if (a > b) return 1;
 			if (a < b) return -1;
 			return 0;
 		});
-		const i = Math.floor(3 * n / 4);
-		if (n % 4 === 0) {
-			return (result[i - 1] + result[i]) / 2;
+		const n = data.length;
+		const i = Math.ceil(n / 2);
+		result = result.slice(i);
+		const m = result.length;
+		const j = Math.floor(m / 2);
+		if (m % 2 === 0) {
+			return (result[j - 1] + result[j]) / 2;
 		} else {
-			return result[i];
+			return result[j];
 		}
-	}
+	}	
 
 	/**
 	 * Finds the inter-quartile range.
@@ -488,6 +507,14 @@ class BirdArray {
 			result[i] = val.replace(pattern, replacement);
 		}
 		return new BirdArray(result);
+	}
+
+	/**
+	 * Prints the BirdArray.
+	 */
+	print() {
+		const data = this.data;
+		console.log(data);
 	}
 
 }
@@ -903,8 +930,9 @@ class Bird {
 			if (a < b) return -1;
 			return 0;
 		});
-		const i = Math.floor(n / 2);
-		if (n % 2 === 0) {
+		const N = result.length;
+		const i = Math.floor(N / 2);
+		if (N % 2 === 0) {
 			return (result[i - 1] + result[i]) / 2;
 		} else {
 			return result[i];
@@ -934,11 +962,15 @@ class Bird {
 			if (a < b) return -1;
 			return 0;
 		});
-		const i = Math.floor(n / 4);
-		if (n % 4 === 0) {
-			return (result[i - 1] + result[i]) / 2;
+		const N = result.length;
+		const i = Math.floor(N / 2);
+		result = result.slice(0, i);
+		const M = result.length;
+		const j = Math.floor(M / 2);
+		if (M % 2 === 0) {
+			return (result[j - 1] + result[j]) / 2;
 		} else {
-			return result[i];
+			return result[j];
 		}
 	}
 
@@ -965,11 +997,15 @@ class Bird {
 			if (a < b) return -1;
 			return 0;
 		});
-		const i = Math.floor(3 * n / 4);
-		if (n % 4 === 0) {
-			return (result[i - 1] + result[i]) / 2;
+		const N = result.length;
+		const i = Math.ceil(N / 2);
+		result = result.slice(i);
+		const M = result.length;
+		const j = Math.floor(M / 2);
+		if (M % 2 === 0) {
+			return (result[j - 1] + result[j]) / 2;
 		} else {
-			return result[i];
+			return result[j];
 		}
 	}
 
@@ -1122,8 +1158,8 @@ class Bird {
 	 * @returns {number} A number.
 	 */
 	var(cols = this.cols, sample = true) {
-			const tss = this.tss(cols);
-			const count = this.count(cols);
+		const tss = this.tss(cols);
+		const count = this.count(cols);
 		if (sample) {
 			return tss / (count - 1);
 		} else {
