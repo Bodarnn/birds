@@ -532,7 +532,7 @@ bd.q1(['bar', 'baz']);
 Output:
 
 ```
-2
+3
 ```
 
 </details>
