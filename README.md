@@ -409,8 +409,7 @@ let data = [
     {'foo': 'c', 'bar': 9, 'baz': 10}
 ];
 let bd = new Bird(data);
-bd['qux'] = bd.min(['bar', 'baz']);
-bd.print();
+bd.min(['bar', 'baz']);
 ```
 
 Output:
@@ -449,8 +448,7 @@ let data = [
     {'foo': 'c', 'bar': 9, 'baz': 10}
 ];
 let bd = new Bird(data);
-bd['qux'] = bd.max(['bar', 'baz']);
-bd.print();
+bd.max(['bar', 'baz']);
 ```
 
 Output:
