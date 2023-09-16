@@ -265,21 +265,18 @@ class BirdArray {
 	 */
 	q1() {
 		const data = this.data;
+		const n = data.length;
 		let result = data.slice();
 		result.sort((a, b) => {
 			if (a > b) return 1;
 			if (a < b) return -1;
 			return 0;
 		});
-		const n = data.length;
-		const i = Math.floor(n / 2);
-		result = result.slice(0, i);
-		const m = result.length;
-		const j = Math.floor(m / 2);
-		if (m % 2 === 0) {
-			return (result[j - 1] + result[j]) / 2;
+		const i = Math.floor(n / 4);
+		if (n % 4 <= 1) {
+			return (result[i] + result[i - 1]) / 2;
 		} else {
-			return result[j];
+			return result[i];
 		}
 	}
 
@@ -289,23 +286,20 @@ class BirdArray {
 	 */
 	q3() {
 		const data = this.data;
+		const n = data.length;
 		let result = data.slice();
 		result.sort((a, b) => {
-			if (a > b) return 1;
-			if (a < b) return -1;
+			if (a > b) return -1;
+			if (a < b) return 1;
 			return 0;
 		});
-		const n = data.length;
-		const i = Math.ceil(n / 2);
-		result = result.slice(i);
-		const m = result.length;
-		const j = Math.floor(m / 2);
-		if (m % 2 === 0) {
-			return (result[j - 1] + result[j]) / 2;
+		const i = Math.floor(n / 4);
+		if (n % 4 <= 1) {
+			return (result[i] + result[i - 1]) / 2;
 		} else {
-			return result[j];
+			return result[i];
 		}
-	}	
+	}
 
 	/**
 	 * Finds the inter-quartile range.
@@ -963,14 +957,11 @@ class Bird {
 			return 0;
 		});
 		const N = result.length;
-		const i = Math.floor(N / 2);
-		result = result.slice(0, i);
-		const M = result.length;
-		const j = Math.floor(M / 2);
-		if (M % 2 === 0) {
-			return (result[j - 1] + result[j]) / 2;
+		const i = Math.floor(N / 4);
+		if (N % 4 <= 1) {
+			return (result[i - 1] + result[i]) / 2;
 		} else {
-			return result[j];
+			return result[i];
 		}
 	}
 
@@ -993,19 +984,16 @@ class Bird {
 			}
 		}
 		result.sort((a, b) => {
-			if (a > b) return 1;
-			if (a < b) return -1;
+			if (a > b) return -1;
+			if (a < b) return 1;
 			return 0;
 		});
 		const N = result.length;
-		const i = Math.ceil(N / 2);
-		result = result.slice(i);
-		const M = result.length;
-		const j = Math.floor(M / 2);
-		if (M % 2 === 0) {
-			return (result[j - 1] + result[j]) / 2;
+		const i = Math.floor(N / 4);
+		if (N % 4 <= 1) {
+			return (result[i - 1] + result[i]) / 2;
 		} else {
-			return result[j];
+			return result[i];
 		}
 	}
 
