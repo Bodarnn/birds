@@ -1,4 +1,4 @@
-This project that has gotten away from me recently. It's a library for processing structured data in JavaScript. It's kinda like NumPy and Pandas in Python. Older versions were more feature-complete, but had worse performance. You can see Birds in action at [Sanctuary Stats](https://bodarnn.github.io/sanctuary-stats/).
+This project that has gotten away from me recently. Older versions were more feature-complete, but had worse performance. You can see Birds in action at [Sanctuary Stats](https://bodarnn.github.io/sanctuary-stats/).
 
 # birds
 
